@@ -2,22 +2,17 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-         sass: {
+        sass: {
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'styles',
-                    src: ['css/main.scss'],
-                    dest: './scss/main.css',
-                    ext: '.css'
-                }]
+                files: {
+                    './css/main.css': './scss/main.scss'
                 }
-            },
-              
+            }
+        },
         watch: {
-            scss: {                     
-                files: ['css/*.scss'], 
-                task: ['sass'] 
+            css: {
+                files: '**/*.scss',
+                tasks: ['sass']
             }
         },
         browserSync: {
